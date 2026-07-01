@@ -31,7 +31,7 @@ position:fixed;
 inset:0;
 background-image:radial-gradient(rgba(255,220,220,.8) 1px,transparent 1px);
 background-size:40px 40px;
-opacity:.22;
+opacity:.45;
 animation:mover 40s linear infinite;
 }
 
@@ -121,30 +121,6 @@ box-shadow:0 0 40px rgba(180,0,40,.3);
 overflow:hidden;
 }
 
-/* 🌑 Luna Blood Saga */
-.luna{
-position:absolute;
-top:-70px;
-right:-70px;
-width:260px;
-height:260px;
-border-radius:50%;
-background:
-radial-gradient(circle at 35% 35%,
-rgba(255,120,120,.65),
-rgba(190,20,40,.45) 40%,
-rgba(120,0,20,.18) 65%,
-transparent 80%);
-filter:blur(8px);
-opacity:.65;
-transform:scale(1);
-transition:opacity 2s ease,transform 2s ease;
-pointer-events:none;
-animation:lunaRespira 8s ease-in-out infinite;
-}
-
-@keyframes lunaRespira{
-
 0%,100%{
 transform:scale(1);
 filter:blur(8px);
@@ -233,8 +209,6 @@ font-size:1.6rem;
 </div>
 
 <div class="caja">
-
-<div class="luna"></div>
 
 <h2>ENHYPEN</h2>
 
