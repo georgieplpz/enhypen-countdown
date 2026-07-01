@@ -3,103 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ENHYPEN - BLOOD SAGA</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-height:100vh;display:flex;justify-content:center;align-items:center;
-background:linear-gradient(180deg,#090102 0%,#170205 20%,#2d050b 45%,#4a0913 70%,#6d0e1d 100%);
-overflow:hidden;color:white;text-align:center;padding:20px}
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+180deg,
+#090102 0%,
+#170205 20%,
+#2d050b 45%,
+#4a0913 70%,
+#6d0e1d 100%
+);
+overflow:hidden;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* Estrellas */
 body::before{
-content:"";position:fixed;inset:0;
-background-image:radial-gradient(rgba(255,220,220,.8) 1px,transparent 1px);
-background-size:40px 40px;opacity:.22;animation:mover 40s linear infinite}
+content:"";
+position:absolute;
+inset:0;
+background-image:
+radial-gradient(rgba(255,220,220,.85) 1px, transparent 1px);
+background-size:40px 40px;
+opacity:.25;
+animation:mover 40s linear infinite;
+}
+
+/* Brillo rojo */
 body::after{
-content:"";position:fixed;width:550px;height:550px;border-radius:50%;
-background:radial-gradient(circle,rgba(180,0,40,.22),transparent 70%);
-filter:blur(35px);animation:pulse 6s ease-in-out infinite}
-@keyframes mover{from{transform:translateY(0)}to{transform:translateY(-40px)}}
-@keyframes pulse{50%{transform:scale(1.15)}}
-#intro{
-position:fixed;inset:0;background:#040000;display:flex;
-flex-direction:column;justify-content:center;align-items:center;
-z-index:9999;animation:fadeOut .9s ease 2.6s forwards}
-#intro h1{font-size:3rem;letter-spacing:8px;color:#fff}
-#intro p{letter-spacing:6px;color:#d58b97;margin-top:12px}
-#intro .bar{width:220px;height:8px;background:#2a1115;border-radius:99px;margin-top:25px;overflow:hidden}
-#intro .fill{height:100%;width:0;background:#d61f46;animation:load 2.3s linear forwards}
-@keyframes load{to{width:100%}}
-@keyframes fadeOut{to{opacity:0;visibility:hidden}}
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle, rgba(180,0,40,.25), transparent 70%);
+filter:blur(40px);
+animation:latido 6s ease-in-out infinite;
+}
+
+@keyframes mover{
+from{transform:translateY(0);}
+to{transform:translateY(-40px);}
+}
+
+@keyframes latido{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
 .caja{
-position:relative;z-index:2;max-width:430px;width:100%;
-padding:35px;border-radius:24px;
+position:relative;
+z-index:2;
+padding:35px;
+border-radius:25px;
 background:rgba(35,5,10,.55);
 backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
 border:1px solid rgba(255,90,90,.18);
-box-shadow:0 0 40px rgba(180,0,40,.3)}
-h2{font-size:2.3rem;letter-spacing:5px;color:#ffe8ea}
-.sub{margin-top:8px;color:#ffb8c2;letter-spacing:4px}
-.msg{margin:20px 0 24px;color:#f6d7db;line-height:1.6}
-#contador{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.b{background:rgba(120,15,35,.35);padding:16px 8px;border-radius:16px;border:1px solid rgba(255,120,120,.15)}
-.n{font-size:2rem;font-weight:bold;color:#fff2f3}
-.t{font-size:.8rem;color:#f3c9cf;margin-top:6px}
-.footer{margin-top:20px;color:#dfb4ba;font-size:.82rem}
+box-shadow:0 0 40px rgba(180,0,40,.30);
+width:100%;
+max-width:430px;
+}
+
+h1{
+font-size:2.4rem;
+letter-spacing:5px;
+color:#ffe8ea;
+text-shadow:0 0 20px rgba(255,70,70,.35);
+margin-bottom:8px;
+}
+
+.subtitulo{
+letter-spacing:4px;
+font-size:.95rem;
+color:#ffb8c2;
+margin-bottom:18px;
+}
+
+.mensaje{
+font-size:.95rem;
+line-height:1.6;
+color:#f6d7db;
+margin-bottom:25px;
+}
+
+#contador{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+.bloque{
+background:rgba(120,15,35,.35);
+padding:15px 10px;
+border-radius:16px;
+border:1px solid rgba(255,120,120,.15);
+transition:.3s;
+}
+
+.bloque:hover{
+transform:translateY(-3px);
+background:rgba(150,20,40,.45);
+}
+
+.numero{
+font-size:2.1rem;
+font-weight:bold;
+color:#fff2f3;
+text-shadow:0 0 10px rgba(255,80,80,.45);
+}
+
+.texto{
+margin-top:5px;
+font-size:.8rem;
+color:#f3c9cf;
+}
+
+.footer{
+margin-top:22px;
+font-size:.8rem;
+color:#e3b6bc;
+opacity:.9;
+}
+
 @media(max-width:500px){
-h2{font-size:2rem}
-.n{font-size:1.6rem}
+
+.caja{
+padding:28px 20px;
+}
+
+h1{
+font-size:2rem;
+}
+
+.numero{
+font-size:1.7rem;
+}
+
+.mensaje{
+font-size:.9rem;
+}
+
 }
 </style>
+
 </head>
+
 <body>
 
-<div id="intro">
+<div class="caja">
+
 <h1>ENHYPEN</h1>
-<p>BLOOD SAGA</p>
-<div class="bar"><div class="fill"></div></div>
+
+<div class="subtitulo">
+BLOOD SAGA
 </div>
 
-<div class="caja">
-<h2>ENHYPEN</h2>
-<div class="sub">BLOOD SAGA</div>
-<div class="msg">Cada segundo que pasa es un segundo menos para ver el resultado de todo tu esfuerzo. ❤️</div>
+<div class="mensaje">
+Cada segundo que pasa es un segundo menos para ver el resultado de todo tu esfuerzo. ❤️
+</div>
 
 <div id="contador">
-<div class="b"><div class="n" id="dias">0</div><div class="t">Días</div></div>
-<div class="b"><div class="n" id="horas">00</div><div class="t">Horas</div></div>
-<div class="b"><div class="n" id="minutos">00</div><div class="t">Minutos</div></div>
-<div class="b"><div class="n" id="segundos">00</div><div class="t">Segundos</div></div>
+
+<div class="bloque">
+<div class="numero" id="dias">0</div>
+<div class="texto">Días</div>
 </div>
 
-<div class="footer">14 · JULIO · 2026 · 7:30 PM (CDMX)</div>
+<div class="bloque">
+<div class="numero" id="horas">0</div>
+<div class="texto">Horas</div>
+</div>
+
+<div class="bloque">
+<div class="numero" id="minutos">0</div>
+<div class="texto">Minutos</div>
+</div>
+
+<div class="bloque">
+<div class="numero" id="segundos">0</div>
+<div class="texto">Segundos</div>
+</div>
+
+</div>
+
+<div class="footer">
+14 · JULIO · 2026 · 7:30 PM
+</div>
+
 </div>
 
 <script>
-const fecha = new Date(2026,6,14,19,30,0);
+
+const fecha = new Date(2026, 6, 14, 19, 30, 0);
 
 function actualizar(){
- const ahora=new Date();
- const d=fecha-ahora;
- if(d<=0){
-  document.body.innerHTML='<div style="display:flex;justify-content:center;align-items:center;height:100vh;width:100%;color:white;text-align:center;background:#100103;font-family:Arial"><div><h1>❤️ ¡Hoy es el concierto! ❤️</h1><p>Disfruta cada segundo. Te ganaste este momento.</p></div></div>';
-  return;
- }
- const dias=Math.floor(d/86400000);
- const horas=Math.floor((d/3600000)%24);
- const minutos=Math.floor((d/60000)%60);
- const segundos=Math.floor((d/1000)%60);
- diasEl.textContent=dias;
- horasEl.textContent=String(horas).padStart(2,'0');
- minutosEl.textContent=String(minutos).padStart(2,'0');
- segundosEl.textContent=String(segundos).padStart(2,'0');
+
+const ahora = new Date();
+const diferencia = fecha-ahora;
+
+if(diferencia<=0){
+
+document.body.innerHTML=`
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:20px;color:white;background:#100103;">
+<div>
+<h1 style="font-size:3rem;margin-bottom:20px;">❤️</h1>
+<h2>¡Hoy es el concierto!</h2>
+<p style="margin-top:15px;font-size:1.1rem;">
+Disfruta cada canción, canta, grita, llora y crea recuerdos inolvidables.
+</p>
+</div>
+</div>
+`;
+
+return;
 }
-const diasEl=document.getElementById('dias');
-const horasEl=document.getElementById('horas');
-const minutosEl=document.getElementById('minutos');
-const segundosEl=document.getElementById('segundos');
+
+const dias=Math.floor(diferencia/(1000*60*60*24));
+const horas=Math.floor((diferencia/(1000*60*60))%24);
+const minutos=Math.floor((diferencia/(1000*60))%60);
+const segundos=Math.floor((diferencia/1000)%60);
+
+document.getElementById("dias").textContent=dias;
+document.getElementById("horas").textContent=String(horas).padStart(2,"0");
+document.getElementById("minutos").textContent=String(minutos).padStart(2,"0");
+document.getElementById("segundos").textContent=String(segundos).padStart(2,"0");
+
+}
+
 actualizar();
 setInterval(actualizar,1000);
-setTimeout(()=>{const i=document.getElementById('intro'); if(i) i.remove();},3600);
+
 </script>
 
 </body>
