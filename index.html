@@ -29,10 +29,20 @@ body::before{
 content:"";
 position:fixed;
 inset:0;
-background-image:radial-gradient(rgba(255,220,220,.8) 1px,transparent 1px);
-background-size:40px 40px;
+pointer-events:none;
 opacity:.45;
-animation:mover 40s linear infinite;
+background-image:
+radial-gradient(circle at 8% 15%, rgba(255,255,255,.9) 1px, transparent 2px),
+radial-gradient(circle at 22% 80%, rgba(255,220,220,.7) 1.5px, transparent 2.5px),
+radial-gradient(circle at 40% 30%, rgba(255,255,255,.8) 1px, transparent 2px),
+radial-gradient(circle at 63% 10%, rgba(255,220,220,.6) 2px, transparent 3px),
+radial-gradient(circle at 78% 55%, rgba(255,255,255,.9) 1px, transparent 2px),
+radial-gradient(circle at 90% 25%, rgba(255,220,220,.7) 1.5px, transparent 2.5px),
+radial-gradient(circle at 15% 55%, rgba(255,255,255,.6) 2px, transparent 3px),
+radial-gradient(circle at 55% 85%, rgba(255,220,220,.8) 1px, transparent 2px),
+radial-gradient(circle at 72% 75%, rgba(255,255,255,.8) 1.5px, transparent 2.5px),
+radial-gradient(circle at 95% 92%, rgba(255,220,220,.7) 1px, transparent 2px);
+animation:parpadeo 6s ease-in-out infinite alternate;
 }
 
 body::after{
@@ -46,9 +56,16 @@ filter:blur(35px);
 animation:pulse 6s ease-in-out infinite;
 }
 
-@keyframes mover{
-from{transform:translateY(0);}
-to{transform:translateY(-40px);}
+@keyframes parpadeo{
+0%{
+opacity:.25;
+}
+50%{
+opacity:.45;
+}
+100%{
+opacity:.3;
+}
 }
 
 @keyframes pulse{
@@ -281,7 +298,7 @@ const mensajes = [
 "❤️ Cada segundo que pasa es un segundo menos para ver el resultado de todo tu esfuerzo.",
 "🤍 Te amo, honguito.",
 "✨ Cada vez falta menos para ese día.",
-"🌙 Pronto dejarás de imaginar ese momento... porque por fin lo vas a vivir.",
+"🤍 Estoy muy rogulloso de ti amor",
 "❤️ Solo prométeme una cosa, amor: disfrútalo mucho."
 ];
 
