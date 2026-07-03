@@ -213,11 +213,156 @@ font-size:1.6rem;
 }
 
 }
+
+ /* Botón */
+
+.btn-sorpresa{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+z-index:9998;
+
+width:50px;
+height:50px;
+
+border:none;
+
+border-radius:50%;
+
+background:rgba(180,20,40,.28);
+
+border:1px solid rgba(255,180,180,.2);
+
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+
+color:white;
+
+font-size:24px;
+
+cursor:pointer;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+transition:.35s;
+
+box-shadow:0 0 18px rgba(0,0,0,.25);
+
+}
+
+.btn-sorpresa:hover{
+
+transform:scale(1.12);
+
+background:rgba(180,20,40,.45);
+
+box-shadow:0 0 22px rgba(255,120,120,.45);
+
+}
+
+.btn-sorpresa:active{
+
+transform:scale(.95);
+
+}
+
+/* Popup */
+
+.popup{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:rgba(0,0,0,.88);
+
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+
+opacity:0;
+visibility:hidden;
+
+transition:.4s;
+
+z-index:99999;
+
+}
+
+.popup.activo{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.popup img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:18px;
+
+transform:scale(.75);
+
+transition:.4s;
+
+box-shadow:0 0 35px rgba(255,255,255,.25);
+
+}
+
+.popup.activo img{
+
+transform:scale(1);
+
+}
+
+#cerrarPopup{
+
+position:absolute;
+
+top:25px;
+
+right:35px;
+
+font-size:42px;
+
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#cerrarPopup:hover{
+
+transform:rotate(90deg);
+
+}
+ 
 </style>
 
 </head>
 
 <body>
+
+<button id="abrirFoto" class="btn-sorpresa">🤍</button>
 
 <div id="intro">
 <h1>ENHYPEN</h1>
@@ -246,6 +391,16 @@ Cada segundo que pasa es un segundo menos para ver el resultado de todo tu esfue
 
 </div>
 
+<div id="popup" class="popup">
+
+    <span id="cerrarPopup">&times;</span>
+
+    <img
+    src="https://georgieplpz.github.io/enhypen-countdown/WhatsApp%20Image%202026-07-01%20at%209.07.11%20PM.jpeg"
+    alt="Sorpresa">
+
+</div>
+ 
 <script>
 const fecha = new Date(2026,6,14,19,30,0);
 
@@ -320,6 +475,34 @@ setInterval(() => {
 
 }, 10000);
 
+ const popup = document.getElementById("popup");
+
+const abrirFoto = document.getElementById("abrirFoto");
+
+const cerrarPopup = document.getElementById("cerrarPopup");
+
+abrirFoto.addEventListener("click",()=>{
+
+popup.classList.add("activo");
+
+});
+
+cerrarPopup.addEventListener("click",()=>{
+
+popup.classList.remove("activo");
+
+});
+
+popup.addEventListener("click",(e)=>{
+
+if(e.target===popup){
+
+popup.classList.remove("activo");
+
+}
+
+});
+ 
 </script>
 
 </body>
