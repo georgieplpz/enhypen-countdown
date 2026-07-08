@@ -400,7 +400,58 @@ height:1px;
 background:rgba(255,255,255,.15);
 
 }
- 
+
+.popup-contenido::-webkit-scrollbar{
+width:6px;
+}
+
+.popup-contenido::-webkit-scrollbar-thumb{
+background:rgba(255,120,120,.5);
+border-radius:10px;
+}
+
+/* Animación exclusiva del setlist */
+
+.setlist-contenido > *{
+opacity:0;
+transform:translateY(20px);
+animation:entradaSetlist .6s ease forwards;
+}
+
+.setlist-contenido > *:nth-child(1){
+animation-delay:.1s;
+}
+
+.setlist-contenido > *:nth-child(2){
+animation-delay:.25s;
+}
+
+.setlist-contenido > *:nth-child(3){
+animation-delay:.4s;
+}
+
+.setlist-contenido > *:nth-child(4){
+animation-delay:.55s;
+}
+
+.setlist-contenido > *:nth-child(5){
+animation-delay:.7s;
+}
+
+@keyframes entradaSetlist{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
 </style>
 
 </head>
@@ -458,23 +509,130 @@ Cada segundo que pasa es un segundo menos para ver el resultado de todo tu esfue
 
 <span id="cerrarSetlist">&times;</span>
 
-<div class="popup-contenido">
+<div class="popup-contenido setlist-contenido">
+  
+<h2>🎵 BLOOD SAGA</h2>
 
-<h2>BLOOD SAGA</h2>
+<p><b>WORLD TOUR SETLIST</b></p>
 
-<p><b>SETLIST</b></p>
+<p style="color:#ffb8c2;font-size:.9rem;margin-top:10px;">
+ENHYPEN WORLD TOUR
+</p>
 
 <hr>
 
-<p>
-Walk the Line<br>
-Future Perfect<br>
-Paranormal<br>
-Moonstruck<br>
-XO<br>
-Bite Me<br>
-...
+<div style="line-height:1.8;text-align:left;">
+
+<center>🎬 <b>VCR I</b></center>
+
+<br>
+
+🗡️ Knife<br><br>
+
+🌙 Daydream<br><br>
+
+🌑 Outside<br><br>
+
+🔥 Brought the Heat Back<br><br>
+
+
+<hr>
+
+<center>🎤 <b>TALK</b></center>
+
+<hr>
+
+
+🖤 No Way Back<br><br>
+
+
+<hr>
+
+<center>🎬 <b>VCR II</b></center>
+
+<hr>
+
+
+💔 Big Girls Don't Cry<br><br>
+
+✨ No Doubt<br><br>
+
+💤 Sleep Tight<br><br>
+
+💵 Bills<br><br>
+
+🌕 Moonstruck<br><br>
+
+👻 Paranormal<br><br>
+
+💥 Blockbuster<br><br>
+
+🚀 Go Big or Go Home<br><br>
+
+🎤 Future Perfect (Pass the MIC)<br>
+
+<small>(Remix)</small>
+
+
+<hr>
+
+<center>🎬 <b>VCR III</b></center>
+
+<hr>
+
+
+🗡️ Stealer<br>
+
+<small>(Live Debut)</small><br><br>
+
+🍷 Drunk-Dazed<br><br>
+
+🩸 Bite Me<br>
+
+<small>(Remix)</small><br><br>
+
+🌘 Fate
+
+
+<hr>
+
+<center>🎬 <b>VCR IV</b></center>
+
+<hr>
+
+
+❤️ Criminal Love
+
+
+<hr>
+
+<center>🎮 <b>GAME BREAK</b></center>
+
+<hr>
+
+
+🎉 <b>ENCORE</b><br><br>
+
+🏝️ Lost Island<br>
+
+<small>(Live Debut)</small><br><br>
+
+🤍 XO (Only If You Say Yes)<br><br>
+
+👁️ Blind<br><br>
+
+☀️ Helium<br><br>
+
+📣 SHOUT OUT
+
+
+<hr>
+
+<p style="text-align:center;color:#ffb8c2;font-style:italic;">
+Y cuando suene la última canción... disfruta cada segundo. 🤍
 </p>
+
+</div>
 
 </div>
 
