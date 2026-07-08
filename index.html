@@ -214,9 +214,9 @@ font-size:1.6rem;
 
 }
 
- /* Botón */
-
-.btn-sorpresa{
+  /* Contenedor de Botón */
+ 
+ .botones{
 
 position:fixed;
 
@@ -224,7 +224,16 @@ top:20px;
 
 right:20px;
 
+display:flex;
+
+gap:12px;
+
 z-index:9998;
+
+}
+ /* Botón */
+
+.btn-sorpresa{
 
 width:50px;
 height:50px;
@@ -332,7 +341,7 @@ transform:scale(1);
 
 }
 
-#cerrarPopup{
+.popup span{
 
 position:absolute;
 
@@ -350,9 +359,45 @@ transition:.3s;
 
 }
 
-#cerrarPopup:hover{
+.popup span:hover{
 
 transform:rotate(90deg);
+
+}
+
+.popup-contenido{
+
+background:rgba(35,5,10,.85);
+
+padding:30px;
+
+border-radius:20px;
+
+max-width:420px;
+
+width:90%;
+
+max-height:80vh;
+
+overflow-y:auto;
+
+border:1px solid rgba(255,120,120,.2);
+
+box-shadow:0 0 30px rgba(180,0,40,.35);
+
+text-align:center;
+
+}
+
+.popup-contenido hr{
+
+margin:15px 0;
+
+border:none;
+
+height:1px;
+
+background:rgba(255,255,255,.15);
 
 }
  
@@ -362,7 +407,15 @@ transform:rotate(90deg);
 
 <body>
 
+<div class="botones">
+
 <button id="abrirFoto" class="btn-sorpresa">🤍</button>
+
+<button id="abrirSetlist" class="btn-sorpresa">🎵</button>
+
+<button id="abrirInfo" class="btn-sorpresa">📍</button>
+
+</div>
 
 <div id="intro">
 <h1>ENHYPEN</h1>
@@ -398,6 +451,60 @@ Cada segundo que pasa es un segundo menos para ver el resultado de todo tu esfue
     <img
     src="https://georgieplpz.github.io/enhypen-countdown/WhatsApp%20Image%202026-07-01%20at%209.07.11%20PM.jpeg"
     alt="Sorpresa">
+
+</div>
+
+ <div id="popupSetlist" class="popup">
+
+<span id="cerrarSetlist">&times;</span>
+
+<div class="popup-contenido">
+
+<h2>BLOOD SAGA</h2>
+
+<p><b>SETLIST</b></p>
+
+<hr>
+
+<p>
+Walk the Line<br>
+Future Perfect<br>
+Paranormal<br>
+Moonstruck<br>
+XO<br>
+Bite Me<br>
+...
+</p>
+
+</div>
+
+</div>
+
+ <div id="popupInfo" class="popup">
+
+<span id="cerrarInfo">&times;</span>
+
+<div class="popup-contenido">
+
+<h2>📍 Concierto</h2>
+
+<hr>
+
+<p>
+
+🕢 7:30 PM<br><br>
+
+🎫 Ten listo tu boleto.<br><br>
+
+🔋 Lleva tu celular cargado.<br><br>
+
+💧 Toma agua.<br><br>
+
+🤍 Disfruta muchísimo este día.
+
+</p>
+
+</div>
 
 </div>
  
@@ -475,19 +582,15 @@ setInterval(() => {
 
 }, 10000);
 
- const popup = document.getElementById("popup");
+function activarPopup(boton,popup,cerrar){
 
-const abrirFoto = document.getElementById("abrirFoto");
-
-const cerrarPopup = document.getElementById("cerrarPopup");
-
-abrirFoto.addEventListener("click",()=>{
+boton.addEventListener("click",()=>{
 
 popup.classList.add("activo");
 
 });
 
-cerrarPopup.addEventListener("click",()=>{
+cerrar.addEventListener("click",()=>{
 
 popup.classList.remove("activo");
 
@@ -502,6 +605,26 @@ popup.classList.remove("activo");
 }
 
 });
+
+}
+
+activarPopup(
+document.getElementById("abrirFoto"),
+document.getElementById("popup"),
+document.getElementById("cerrarPopup")
+);
+
+activarPopup(
+document.getElementById("abrirSetlist"),
+document.getElementById("popupSetlist"),
+document.getElementById("cerrarSetlist")
+);
+
+activarPopup(
+document.getElementById("abrirInfo"),
+document.getElementById("popupInfo"),
+document.getElementById("cerrarInfo")
+);
  
 </script>
 
